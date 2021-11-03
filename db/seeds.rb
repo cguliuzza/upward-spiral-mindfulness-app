@@ -12,6 +12,8 @@ UserAction.delete_all
 Action.delete_all
 Journal.delete_all
 Category.delete_all
+ActionCategory.delete_all
+UserJournal.delete_all
 
 puts "Planting users..."
 
@@ -21,9 +23,9 @@ pink_panther = User.create(first_name: "Pink", last_name: "Panther", email: "pin
 
 puts "Planting user actions..."
 
-user_action1 = UserAction.create(favorite: false, dislike: false, user_id: 2, action_id: 1, journal_id: nil, category_id: 3)
-user_action2 = UserAction.create(favorite: true, dislike: false, user_id: 3, action_id: 3, journal_id: nil, category_id: 1)
-user_action3 = UserAction.create(favorite: false, dislike: true, user_id: 2, action_id: 2, journal_id: 1, category_id: 3)
+user_action1 = UserAction.create(favorite: false, dislike: false, user_id: 2, action_id: 1)
+user_action2 = UserAction.create(favorite: true, dislike: false, user_id: 3, action_id: 3)
+user_action3 = UserAction.create(favorite: false, dislike: true, user_id: 2, action_id: 2)
 
 puts "Planting actions..."
 
@@ -31,11 +33,11 @@ action1 = Action.create(name: "Timed Meditation", description: "Take a deep brea
 action2 = Action.create(name: "Journal", description: "My half-baked thought in this moment is...", minutes: 5)
 action3 = Action.create(name: "Go for a Walk", description: "Put your shoes on and take one step outside", minutes: 5)
 
-puts "Planting journals..."
+puts "Planting action categories..."
 
-journal1 = Journal.create(title: "Test 1", message: "This is my very first journal entry.")
-journal2 = Journal.create(title: "Test 2", message: "Simba has been sleeping all day.")
-journal3 = Journal.create(title: "Test 3", message: "I think it's lunch time.")
+action_category1 = ActionCategory.create(action_id: 1, category_id: 1)
+action_category2 = ActionCategory.create(action_id: 2, category_id: 3)
+action_category3 = ActionCategory.create(action_id: 3, category_id: 1)
 
 puts "Planting categories..."
 
@@ -43,6 +45,20 @@ category1 = Category.create(name: "Health")
 category2 = Category.create(name: "Work")
 category3 = Category.create(name: "Spiritual/Personal Growth")
 category4 = Category.create(name: "Recreation")
+
+puts "Planting user journals..."
+
+user_journal1 = UserJournal.create(user_id: 1, journal_id: 1)
+user_journal2 = UserJournal.create(user_id: 1, journal_id: 2)
+user_journal3 = UserJournal.create(user_id: 3, journal_id: 3)
+
+puts "Planting journals..."
+
+journal1 = Journal.create(title: "Test 1", message: "This is my very first journal entry.")
+journal2 = Journal.create(title: "Test 2", message: "Simba has been sleeping all day.")
+journal3 = Journal.create(title: "Test 3", message: "I think it's lunch time.")
+
+
 
 
 puts "~^~^~ DONE SEEDING ~^~^~"
