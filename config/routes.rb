@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :categories, only: [:index]
+  resources :journals, only: [:index]
+  resources :actions, only: [:index]
+  resources :user_actions, only: [:index]
   resources :users, only: [:index]
 
 end
