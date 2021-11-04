@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :action_categories, only: [:index]
-  resources :user_journals, only: [:index]
-  resources :categories, only: [:index]
-  resources :journals, only: [:index]
-  resources :actions, only: [:index]
-  resources :user_actions, only: [:index]
-  resources :users, only: [:index]
+  resources :action_categories, only: [:index, :show]
+  resources :user_journals, only: [:index, :show]
+  resources :categories, only: [:index, :show]
+  resources :journals, only: [:index, :show]
+  resources :actions, only: [:index, :show]
+  resources :user_actions, only: [:index, :show]
+  resources :users, only: [:index, :show, :create]
+
+  # get "/user_journals", to: "user_journals#index"
 
 end
 
