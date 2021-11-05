@@ -12,4 +12,33 @@ class JournalsController < ApplicationController
             render json: {error: "journal not found"}, status: :not_found
         end
     end
+
+    def create
+        journal = current_user.created_journals.build(journal_params)
+        if journal.save
+            render json: journal, status: :created
+        else
+            render json: journal.errors, status: :unprocessable_entity
+        end
+    end
+
+    def update
+        journal = Journal.find(params[:id])
+        if journal.update(journal_params)
+          render json: journal, status: :ok
+        else
+          render json: journal.errors, status: :unprocessable_entity
+        end
+      end
+    
+      def destroy
+        journal = Journal.find(params[:id])
+        journal.destroy
+      end
+
+    private
+
+    def journal_params
+        params.permit(:title, :message)
+    end
 end
