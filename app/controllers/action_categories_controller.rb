@@ -15,6 +15,7 @@ class ActionCategoriesController < ApplicationController
 
     def create
         # IS CURRENT USER RELEVANT HERE??
+        # action_categories#create is broken -- UNABLE TO CREATE ACTION CATEGORIES
         action_category = current_user.action_categories.build(action_category_params)
         if action_category.save
             render json: action_category, status: :created
