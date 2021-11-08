@@ -5,6 +5,6 @@ class ApplicationController < ActionController::API
 # UPDATE CURRENT USER CODE BELOW
 
     def current_user
-      User.first
+      @current_user ||= User.find_by_id(session[:user_id])
     end
   end
