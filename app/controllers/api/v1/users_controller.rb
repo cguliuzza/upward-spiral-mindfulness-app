@@ -1,6 +1,6 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < Api::V1::ApplicationController
     
-    # User = Api::V1::User
+    User = Api::V1::User
     
     def index
         @users = User.all
@@ -16,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
-    def create
+    def signup
         user = User.new(user_params)
         if user.save
             session[:user_id] = user.id

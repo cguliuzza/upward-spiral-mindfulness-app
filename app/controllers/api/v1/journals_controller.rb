@@ -1,6 +1,6 @@
-class Api::V1::JournalsController < ApplicationController
+class Api::V1::JournalsController < Api::V1::ApplicationController
     
-    # Journal = Api::V1::Journal
+    Journal = Api::V1::Journal
     
     def index
         @journals = Journal.all

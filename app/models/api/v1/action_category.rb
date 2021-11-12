@@ -1,4 +1,4 @@
-class Api::V1::ActionCategory < ApplicationRecord
+class Api::V1::ActionCategory < Api::V1::ApplicationRecord
     belongs_to :action
     belongs_to :category
 

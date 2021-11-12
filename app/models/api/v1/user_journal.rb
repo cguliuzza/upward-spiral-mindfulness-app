@@ -1,4 +1,4 @@
-class Api::V1::UserJournal < ApplicationRecord
+class Api::V1::UserJournal < Api::V1::ApplicationRecord
     belongs_to :user
     belongs_to :journal
 
