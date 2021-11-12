@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_160137) do
+ActiveRecord::Schema.define(version: 2021_11_12_173749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "action_categories", force: :cascade do |t|
+  create_table "api_v1_action_categories", force: :cascade do |t|
     t.integer "action_id"
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "actions", force: :cascade do |t|
+  create_table "api_v1_actions", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.integer "minutes"
@@ -30,20 +30,20 @@ ActiveRecord::Schema.define(version: 2021_11_05_160137) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "api_v1_categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "journals", force: :cascade do |t|
+  create_table "api_v1_journals", force: :cascade do |t|
     t.string "title"
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_actions", force: :cascade do |t|
+  create_table "api_v1_user_actions", force: :cascade do |t|
     t.boolean "favorite"
     t.boolean "dislike"
     t.integer "user_id"
@@ -52,14 +52,14 @@ ActiveRecord::Schema.define(version: 2021_11_05_160137) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_journals", force: :cascade do |t|
+  create_table "api_v1_user_journals", force: :cascade do |t|
     t.integer "user_id"
     t.integer "journal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "api_v1_users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"

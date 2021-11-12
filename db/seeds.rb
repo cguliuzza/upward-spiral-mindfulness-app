@@ -15,13 +15,13 @@ Category = Api::V1::Category
 ActionCategory = Api::V1::ActionCategory
 UserJournal = Api::V1::UserJournal
 
-Api::V1::User.delete_all
-Api::V1::UserAction.delete_all
-Api::V1::Action.delete_all
-Api::V1::Journal.delete_all
-Api::V1::Category.delete_all
-Api::V1::ActionCategory.delete_all
-Api::V1::UserJournal.delete_all
+User.delete_all
+UserAction.delete_all
+Action.delete_all
+Journal.delete_all
+Category.delete_all
+ActionCategory.delete_all
+UserJournal.delete_all
 
 puts "Planting users..."
 
