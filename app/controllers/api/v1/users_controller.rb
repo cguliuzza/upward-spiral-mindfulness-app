@@ -28,7 +28,12 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     
     def destroy
         user = User.find(params[:id])
-        user.destroy
+        if user
+            user.destroy
+            head :no_content
+        else
+            render json: {error: "user not found"}, status: :not_found
+        end
     end
     
     private

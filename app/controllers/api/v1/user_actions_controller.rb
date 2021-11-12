@@ -36,7 +36,12 @@ class Api::V1::UserActionsController < Api::V1::ApplicationController
     
       def destroy
         user_action = UserAction.find(params[:id])
-        user_action.destroy
+        if user_action
+            user_action.destroy
+            head :no_content
+        else
+            render json: {error: "user action not found"}, status: :not_found
+        end
       end
 
     private

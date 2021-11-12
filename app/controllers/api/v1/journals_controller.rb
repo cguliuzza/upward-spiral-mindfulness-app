@@ -36,7 +36,12 @@ class Api::V1::JournalsController < Api::V1::ApplicationController
     
       def destroy
         journal = Journal.find(params[:id])
-        journal.destroy
+        if journal
+            journal.destroy
+            head :no_content
+        else
+            render json: {error: "journal not found"}, status: :not_found
+        end
       end
 
     private

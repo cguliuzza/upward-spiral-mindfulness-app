@@ -1,4 +1,3 @@
-
 class Api::V1::ActionCategoriesController < Api::V1::ApplicationController
     ActionCategory = Api::V1::ActionCategory
 
@@ -17,8 +16,6 @@ class Api::V1::ActionCategoriesController < Api::V1::ApplicationController
     end
 
     def create
-        # IS CURRENT USER RELEVANT HERE??
-        # action_categories#create is broken -- UNABLE TO CREATE ACTION CATEGORIES
         action_category = current_user.action_categories.build(action_category_params)
         if action_category.save
             render json: action_category, status: :created
@@ -38,9 +35,13 @@ class Api::V1::ActionCategoriesController < Api::V1::ApplicationController
     
       def destroy
         action_category = ActionCategory.find(params[:id])
-        action_category.destroy
+        if action_category
+            action_category.destroy
+            head :no_content
+        else
+            render json: {error: "action category not found"}, status: :not_found
+        end
       end
-
     private
 
     def action_category_params

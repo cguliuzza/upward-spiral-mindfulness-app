@@ -36,7 +36,12 @@ class Api::V1::CategoriesController < Api::V1::ApplicationController
     
       def destroy
         category = Category.find(params[:id])
-        category.destroy
+        if category
+            category.destroy
+            head :no_content
+        else
+            render json: {error: "category not found"}, status: :not_found
+        end
       end
 
     private

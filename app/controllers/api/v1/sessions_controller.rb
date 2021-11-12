@@ -7,7 +7,7 @@ class Api::V1::SessionsController < Api::V1::ApplicationController
         user = User.find(session[:user_id])
         render json: user
       else
-        render json: {error: "Not logged in"}, status: :not_found
+        render json: {error: "not logged in"}, status: :not_found
       end
     end
     
@@ -18,7 +18,7 @@ class Api::V1::SessionsController < Api::V1::ApplicationController
         session[:user_id] = user.id
         render json: user, status: :ok
       else
-        render json: {error: "Invalid email and/or password"}, status: :unauthorized
+        render json: {error: "invalid email and/or password"}, status: :unauthorized
       end
     end
   

@@ -36,7 +36,12 @@ class Api::V1::UserJournalsController < Api::V1::ApplicationController
     
       def destroy
         user_journal = UserJournal.find(params[:id])
-        user_journal.destroy
+        if user_journal
+            user_journal.destroy
+            head :no_content
+        else
+            render json: {error: "user journal not found"}, status: :not_found
+        end
       end
 
     private
