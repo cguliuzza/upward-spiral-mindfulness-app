@@ -1,7 +1,5 @@
 
 class Api::V1::ActionCategoriesController < Api::V1::ApplicationController
-    # ApplicationController = Api::V1::ApplicationController
-
     ActionCategory = Api::V1::ActionCategory
 
     def index

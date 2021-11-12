@@ -6,44 +6,34 @@ class Api::V1::UsersController < Api::V1::ApplicationController
         @users = User.all
         render json: @users, status: :ok
     end
-
-    def show
-        # user = User.find_by(id: params[:id])
-        if current_user
-            render json: current_user, status: :ok
-        else
-            render json: {error: "No active session"}, status: :unauthorized
-        end
-    end
-
+    
     def signup
         user = User.new(user_params)
         if user.save
             session[:user_id] = user.id
-            render json: user, status: :created
+            render json: {user: user}, status: :created
         else
             render json: user.errors, status: :unprocessable_entity
         end
     end
-
+    
     def update
         user = User.find(params[:id])
         if user.update(user_params)
-          render json: user, status: :ok
+            render json: {user: user}, status: :ok
         else
-          render json: user.errors, status: :unprocessable_entity
+            render json: user.errors, status: :unprocessable_entity
         end
-      end
+    end
     
-      def destroy
+    def destroy
         user = User.find(params[:id])
         user.destroy
-      end
-
+    end
+    
     private
-
+    
     def user_params
-        params.permit(:email, :password)
-        # params.permit(:email, :password, :password_confirmation)
+        params.permit(:first_name, :last_name, :email, :password)
     end
 end

@@ -10,8 +10,6 @@ class Api::V1::UserJournalsController < Api::V1::ApplicationController
     def show
         user_journal = UserJournal.find_by(id: params[:id])
         if user_journal
-            # render json: user_journal, status: :ok
-            # WHAT DOES INCLUDE USERS DO BELOW? TEST THE CODE
             render json: user_journal, include: [:users], status: :ok
         else
             render json: {error: "user journal not found"}, status: :not_found
