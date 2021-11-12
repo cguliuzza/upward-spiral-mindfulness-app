@@ -17,7 +17,7 @@ class Api::V1::UserActionsController < Api::V1::ApplicationController
     end
 
     def create
-        user_action = current_user.user_actions.build(user_action_params)
+        user_action = UserAction.new(user_action_params)
         if user_action.save
             render json: user_action, status: :created
         else

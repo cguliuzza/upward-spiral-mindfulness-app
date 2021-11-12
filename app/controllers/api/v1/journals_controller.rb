@@ -17,7 +17,7 @@ class Api::V1::JournalsController < Api::V1::ApplicationController
     end
 
     def create
-        journal = current_user.created_journals.build(journal_params)
+        journal = Journal.new(journal_params)
         if journal.save
             render json: journal, status: :created
         else

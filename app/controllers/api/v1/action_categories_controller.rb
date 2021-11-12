@@ -16,7 +16,7 @@ class Api::V1::ActionCategoriesController < Api::V1::ApplicationController
     end
 
     def create
-        action_category = current_user.action_categories.build(action_category_params)
+        action_category = ActionCategory.new(action_category_params)
         if action_category.save
             render json: action_category, status: :created
         else
