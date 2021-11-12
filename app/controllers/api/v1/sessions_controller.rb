@@ -13,6 +13,7 @@ class Api::V1::SessionsController < Api::V1::ApplicationController
     
     def login
       user = User.find_by(email: params[:email])
+      # if !!user && user.authenticate(params[:password])
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
         render json: user, status: :ok
@@ -24,6 +25,7 @@ class Api::V1::SessionsController < Api::V1::ApplicationController
     def logout
       if current_user
         session.delete :user_id
+        head: :no_content
       else
         render json: { error: 'no active session'}, status: :unprocessable_entity
       end
