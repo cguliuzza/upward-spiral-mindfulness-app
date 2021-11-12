@@ -1,6 +1,6 @@
-class Api::V1::ActionsController < Api::V1::ApplicationController
+class Api::V1::ActionsController < ApplicationController
     
-    Action = Api::V1::Action
+    # Action = Api::V1::Action
     
     def index
         @actions = Action.all

@@ -1,4 +1,4 @@
-class Api::V1::User < Api::V1::ApplicationRecord
+class Api::V1::User < ApplicationRecord
     has_many :user_actions
     has_many :actions, through: :user_actions
     has_many :user_journals

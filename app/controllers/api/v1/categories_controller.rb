@@ -1,6 +1,6 @@
-class Api::V1::CategoriesController < Api::V1::ApplicationController
+class Api::V1::CategoriesController < ApplicationController
     
-    Category = Api::V1::Category
+    # Category = Api::V1::Category
     
     def index
         @categories = Category.all

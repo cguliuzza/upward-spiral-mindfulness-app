@@ -1,6 +1,6 @@
-class Api::V1::UsersController < Api::V1::ApplicationController
+class Api::V1::UsersController < ApplicationController
     
-    User = Api::V1::User
+    # User = Api::V1::User
     
     def index
         @users = User.all

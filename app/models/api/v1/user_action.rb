@@ -1,4 +1,4 @@
-class Api::V1::UserAction < Api::V1::ApplicationRecord
+class Api::V1::UserAction < ApplicationRecord
     belongs_to :user
     belongs_to :action
 

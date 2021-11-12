@@ -1,6 +1,6 @@
-class Api::V1::ActionCategoriesController < Api::V1::ApplicationController
+class Api::V1::ActionCategoriesController < ApplicationController
 
-    ActionCategory = Api::V1::ActionCategory
+    # ActionCategory = Api::V1::ActionCategory
 
     def index
         @action_categories = ActionCategory.all
