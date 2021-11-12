@@ -7,13 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Plowing the fields..."
 
-User.delete_all
-UserAction.delete_all
-Action.delete_all
-Journal.delete_all
-Category.delete_all
-ActionCategory.delete_all
-UserJournal.delete_all
+User = Api::V1::User
+UserAction = Api::V1::UserAction
+Action = Api::V1::Action
+Journal = Api::V1::Journal
+Category = Api::V1::Category
+ActionCategory = Api::V1::ActionCategory
+UserJournal = Api::V1::UserJournal
+
+Api::V1::User.delete_all
+Api::V1::UserAction.delete_all
+Api::V1::Action.delete_all
+Api::V1::Journal.delete_all
+Api::V1::Category.delete_all
+Api::V1::ActionCategory.delete_all
+Api::V1::UserJournal.delete_all
 
 puts "Planting users..."
 
@@ -57,9 +65,6 @@ puts "Planting journals..."
 journal1 = Journal.create(title: "Test 1", message: "This is my very first journal entry.")
 journal2 = Journal.create(title: "Test 2", message: "Simba has been sleeping all day.")
 journal3 = Journal.create(title: "Test 3", message: "I think it's lunch time.")
-
-
-
 
 puts "~^~^~ DONE SEEDING ~^~^~"
 

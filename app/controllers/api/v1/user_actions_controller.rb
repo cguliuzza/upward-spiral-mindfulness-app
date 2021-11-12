@@ -1,4 +1,7 @@
-class UserActionsController < ApplicationController
+class Api::V1::UserActionsController < Api::V1::ApplicationController
+    
+    UserAction = Api::V1::UserAction
+    
     def index
         @user_actions = UserAction.all
         render json: @user_actions, status: :ok

@@ -1,4 +1,7 @@
-class ActionsController < ApplicationController
+class Api::V1::ActionsController < Api::V1::ApplicationController
+    
+    Action = Api::V1::Action
+    
     def index
         @actions = Action.all
         render json: @actions, status: :ok
