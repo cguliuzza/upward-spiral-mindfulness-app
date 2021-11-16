@@ -6,7 +6,7 @@ class Api::V1::SessionsController < Api::V1::ApplicationController
     def create
       user = User.find_by(email: params[:email])
       # if user && user.authenticate(params[:password])
-      byebug
+      # byebug
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
         render json: user, status: :ok
