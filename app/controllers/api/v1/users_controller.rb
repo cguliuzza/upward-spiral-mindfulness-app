@@ -6,21 +6,31 @@ class Api::V1::UsersController < Api::V1::ApplicationController
         @users = User.all
         render json: @users, status: :ok
     end
+
+    # GET '/me'
+    def show
+        if current_user
+          render json: current_user, status: :ok
+        else
+          render json: {error: "no active session"}, status: :unauthorized
+        end
+    end
     
-    def signup
+    # POST '/signup'
+    def create
         user = User.new(user_params)
         if user.save
             session[:user_id] = user.id
-            render json: {user: user}, status: :created
+            render json: user, status: :created
         else
-            render json: user.errors, status: :unprocessable_entity
+            render json: { error: user.errors }, status: :unprocessable_entity
         end
     end
     
     def update
         user = User.find(params[:id])
         if user.update(user_params)
-            render json: {user: user}, status: :ok
+            render json: user, status: :ok
         else
             render json: user.errors, status: :unprocessable_entity
         end
@@ -39,6 +49,6 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     private
     
     def user_params
-        params.permit(:first_name, :last_name, :email, :password)
+        params.permit(:email, :password, :passwor_confirmation)
     end
 end

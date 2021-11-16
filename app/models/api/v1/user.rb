@@ -6,5 +6,7 @@ class Api::V1::User < Api::V1::ApplicationRecord
     
     validates :first_name, :last_name, :email, presence: true
     validates :email, uniqueness: true
+
+    # adds the password=, password_confirmation=, and authenticate instance methods to the User model
     has_secure_password
 end

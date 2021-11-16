@@ -3,11 +3,11 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       resources :users, only: [:index, :update, :destroy]
-      post '/signup', to: 'users#signup'
+      post '/signup', to: 'users#create'
+      get '/me', to: 'users#show'
       
-      get '/me', to: 'sessions#me'
-      post '/login', to: 'sessions#login'
-      delete '/logout', to: 'sessions#logout'
+      post '/login', to: 'sessions#create'
+      delete '/logout', to: 'sessions#destroy'
 
       resources :user_actions, only: [:index, :show, :create, :update, :destroy]
       resources :actions, only: [:index, :show, :create, :update, :destroy]
