@@ -47,6 +47,6 @@ class Api::V1::UserJournalsController < Api::V1::ApplicationController
     private
 
     def user_journal_params
-        params.permit(:journal_id)
+        params.permit(:user_id, :journal_id)
     end
 end
