@@ -25,15 +25,15 @@ UserJournal.delete_all
 
 puts "Planting users..."
 
-flynn = User.create(first_name: "Flynn", last_name: "Rider", email: "eugene@disney.com", password: "123", admin: false)
-jason = User.create(first_name: "Jason", last_name: "Bourne", email: "davidwebb@treadstone.com", password: "234", admin: false)
-pink_panther = User.create(first_name: "Pink", last_name: "Panther", email: "pink@panther.com", password: "345", admin: false)
+flynn = User.create(first_name: "Flynn", last_name: "Rider", email: "eugene@disney.com", password: "123")
+jason = User.create(first_name: "Jason", last_name: "Bourne", email: "davidwebb@treadstone.com", password: "456")
+pink_panther = User.create(first_name: "Pink", last_name: "Panther", email: "pink@panther.com", password: "789")
 
 puts "Planting user actions..."
 
-user_action1 = UserAction.create(favorite: false, dislike: false, user_id: 2, action_id: 1)
-user_action2 = UserAction.create(favorite: true, dislike: false, user_id: 3, action_id: 3)
-user_action3 = UserAction.create(favorite: false, dislike: true, user_id: 2, action_id: 2)
+user_action1 = UserAction.create(favorite: false, hidden: false, user_id: 2, action_id: 1)
+user_action2 = UserAction.create(favorite: true, hidden: false, user_id: 3, action_id: 3)
+user_action3 = UserAction.create(favorite: false, hidden: true, user_id: 2, action_id: 2)
 
 puts "Planting actions..."
 
