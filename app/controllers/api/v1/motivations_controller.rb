@@ -32,9 +32,9 @@ class Api::V1::MotivationsController < Api::V1::ApplicationController
         else
           render json: motivation.errors, status: :unprocessable_entity
         end
-      end
+    end
     
-      def destroy
+    def destroy
         motivation = Motivation.find(params[:id])
         if motivation
             motivation.destroy
@@ -42,13 +42,11 @@ class Api::V1::MotivationsController < Api::V1::ApplicationController
         else
             render json: {error: "motivation not found"}, status: :not_found
         end
-      end
+    end
 
     private
 
     def motivation_params
         params.permit(:text, :author, :likes)
     end
-end
-
 end
