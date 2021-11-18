@@ -47,6 +47,6 @@ class Api::V1::UserActionsController < Api::V1::ApplicationController
     private
 
     def user_action_params
-        params.permit(:favorite, :dislike, :action_id)
+        params.permit(:action_id, :user_id)
     end
 end
