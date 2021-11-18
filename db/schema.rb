@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_203642) do
+ActiveRecord::Schema.define(version: 2021_11_18_050127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,21 @@ ActiveRecord::Schema.define(version: 2021_11_15_203642) do
   create_table "api_v1_journals", force: :cascade do |t|
     t.string "title"
     t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "api_v1_motivation_categories", force: :cascade do |t|
+    t.integer "motivation_id"
+    t.integer "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "api_v1_motivations", force: :cascade do |t|
+    t.text "text"
+    t.string "author"
+    t.integer "likes", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
